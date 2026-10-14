@@ -4,6 +4,8 @@ from __future__ import annotations
 import csv
 import hashlib
 import json
+import shutil
+import subprocess
 from pathlib import Path
 from typing import Any
 
@@ -18,6 +20,31 @@ from .telemetry import (
     write_preregistration,
 )
 from .wave import DEFAULT_SEED, encode_symbol, run_threshold_experiment
+
+REPOSITORY_URL = "https://github.com/sparkainlp-x/orbit-wave-oes-lab"
+
+
+def _git_commit() -> str | None:
+    """Return the checked-out commit SHA at build time, or None outside a git checkout."""
+    git = shutil.which("git")
+    if git is None:
+        return None
+    try:
+        result = subprocess.run(  # noqa: S603 - fixed argv, no shell
+            [git, "rev-parse", "HEAD"],
+            cwd=Path(__file__).resolve().parent,
+            capture_output=True,
+            text=True,
+            timeout=5,
+            check=False,
+        )
+    except (OSError, subprocess.SubprocessError):
+        return None
+    sha = result.stdout.strip()
+    if result.returncode != 0 or len(sha) != 40 or any(c not in "0123456789abcdef" for c in sha):
+        return None
+    return sha
+
 
 LIMITATIONS = [
     "All orbit/environment, payload, telemetry and injected events in the bundled demo are synthetic.",
@@ -182,8 +209,8 @@ def run_demo(
         "project": {
             "name": "Orbit–Wave–OES Lab",
             "version": __version__,
-            "source_url": None,
-            "source_note": "Local release candidate; no public repository or tag exists yet.",
+            "source_url": REPOSITORY_URL,
+            "source_note": "Public repository; code.commit is the checked-out commit at build time, or null outside a git checkout.",
         },
         "evidence_class": "synthetic",
         "dataset": {
@@ -192,7 +219,7 @@ def run_demo(
             "description": "No spacecraft, NV-diamond, audio-hardware, or field data is included.",
             "source_url": None,
         },
-        "code": {"version": __version__, "commit": None},
+        "code": {"version": __version__, "commit": _git_commit()},
         "seed": seed,
         "protocol": {
             "name": "OES-Resilience schema-2 synthetic demo protocol",
