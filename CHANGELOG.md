@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased
+
+### Documentation and packaging
+- Professionalization pass: `COMMERCIAL-LICENSE.md`, `REVIEW_GUIDE.md`, `.zenodo.json` (community `spark-ai-nlp`, collaborators as contributors of type Other), evidence-status table, Limitations section, Acknowledgements for Mun Seok Lee (verified wave preprint) and Somnath Laha (CSIR-CMERI; satellite / quantum-secured communication concept credit only).
+- README no longer describes the repository as unpublished.
+
 ## 0.1.0 — local release candidate
 
 - Added deterministic normalized orbit/environment and signed-sine payload simulation.

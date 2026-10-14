@@ -8,6 +8,7 @@ authors:
     affiliation: "Spark AI NLP"
     orcid: "https://orcid.org/0009-0000-9778-5374"
 version: "0.1.0"
+# date-released: set at release time
 license: "AGPL-3.0-only"
 repository-code: "https://github.com/sparkainlp-x/orbit-wave-oes-lab"
 abstract: >-
@@ -15,9 +16,8 @@ abstract: >-
   timeline, signed-amplitude sine payload encoding, fixed-threshold synthetic
   readout, optional official OES-Resilience replay, static SHA-256 evidence
   passport, and offline analysis of a user-provided stereo analog-capture WAV.
-  No physical orbit, quantum device, NV-center, audio hardware, or mission
-  performance is validated. The author and repository fields are proposed for
-  review before publication.
+  No physical orbit, quantum device, NV-center, QKD, audio hardware, or mission
+  performance is validated. Collaborators credited in the README are not creators.
 keywords:
   - synthetic-data
   - orbit

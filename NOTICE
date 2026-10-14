@@ -6,6 +6,10 @@ The two-page *Orbit–Wave–OES Lab: A Ground-First Satellite Simulator for a H
 
 The separate local `orbit-quantum-lab` prototype is **not included**. Its package metadata marks it unlicensed/local-only and its source files do not name an author; this candidate therefore does not copy or relicense its resource-sweep code. The normalized orbit/environment timeline in this repository is a fresh implementation of the simple concept described in the task.
 
+## Collaborators (not software authors)
+
+Mun Seok Lee is credited for the wave-component concept (Digital to Wave Part I, doi:10.5281/zenodo.21947036). Somnath Laha (CSIR-CMERI) is credited for related discussion of the satellite / quantum-secured communication concept. Neither is a creator/author of this software; neither has confirmed authorship; no endorsement of results is implied. This software does not implement QKD or quantum-secured communication.
+
 ## Vendored software
 
 `src/orbit_wave_oes_lab/vendor/evidence_passport.py` is copied byte-for-byte from the **Evidence Passport v0.1.0** release:

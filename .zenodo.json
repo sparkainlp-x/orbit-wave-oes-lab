@@ -1,0 +1,95 @@
+{
+  "upload_type": "software",
+  "title": "Orbit–Wave–OES Lab: synthetic orbit, wave-payload, telemetry replay, and binaural capture analysis",
+  "version": "0.1.0",
+  "description": "<p><strong>Orbit–Wave–OES Lab</strong> is a software-only research prototype: a stylized orbital timeline, a classical signed-amplitude sine payload encoding, fixed-threshold synthetic readout, optional OES-Resilience replay scoring, a static SHA-256 evidence passport, and offline analysis of a user-provided stereo PCM WAV.</p><p><strong>Evidence.</strong> Orbit, payload, telemetry events and the bundled demo are <strong>SYNTHETIC</strong>. Physical orbit propagation, spacecraft hardware, quantum devices, NV-center physics, audio hardware and acoustic calibration are <strong>UNRUN</strong>.</p><p><strong>Limits.</strong> Classical software arithmetic only. No QKD, quantum advantage, real satellite hardware, flight-readiness, clinical, security or SMAP/MSL beat claim. Upstream OES-Resilience reports that its own preregistered criteria were not met. Collaborators credited in the README are not creators of this software and have not confirmed authorship or endorsement of results.</p>",
+  "creators": [
+    {
+      "name": "Brisson, Jean-François",
+      "affiliation": "Spark AI NLP",
+      "orcid": "0009-0000-9778-5374"
+    }
+  ],
+  "contributors": [
+    {
+      "name": "Lee, Mun Seok",
+      "orcid": "0009-0003-6627-8507",
+      "type": "Other",
+      "affiliation": "Independent researcher"
+    },
+    {
+      "name": "Laha, Somnath",
+      "type": "Other",
+      "affiliation": "CSIR-CMERI"
+    }
+  ],
+  "access_right": "open",
+  "license": "agpl-3.0-only",
+  "language": "eng",
+  "keywords": [
+    "synthetic-data",
+    "orbit",
+    "wave-encoding",
+    "telemetry",
+    "anomaly-detection",
+    "binaural-audio",
+    "analog-calibration",
+    "reproducibility",
+    "research-software"
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/sparkainlp-x/orbit-wave-oes-lab",
+      "relation": "isSupplementTo",
+      "scheme": "url"
+    },
+    {
+      "identifier": "10.5281/zenodo.21947036",
+      "relation": "references",
+      "scheme": "doi",
+      "resource_type": "publication-article"
+    },
+    {
+      "identifier": "10.5281/zenodo.21947108",
+      "relation": "references",
+      "scheme": "doi",
+      "resource_type": "publication-article"
+    },
+    {
+      "identifier": "10.5281/zenodo.23122876",
+      "relation": "references",
+      "scheme": "doi",
+      "resource_type": "software"
+    },
+    {
+      "identifier": "10.5281/zenodo.23071166",
+      "relation": "references",
+      "scheme": "doi",
+      "resource_type": "software"
+    },
+    {
+      "identifier": "10.5281/zenodo.23165143",
+      "relation": "references",
+      "scheme": "doi",
+      "resource_type": "software"
+    },
+    {
+      "identifier": "10.5281/zenodo.23175492",
+      "relation": "references",
+      "scheme": "doi",
+      "resource_type": "software"
+    },
+    {
+      "identifier": "10.1145/3219819.3219845",
+      "relation": "references",
+      "scheme": "doi",
+      "resource_type": "publication-conferencepaper"
+    }
+  ],
+  "communities": [
+    {
+      "identifier": "spark-ai-nlp"
+    }
+  ],
+  "notes": "Collaborators Mun Seok Lee and Somnath Laha (CSIR-CMERI) are credited for related conceptual work; they are listed as contributors of type Other, not creators. They have not confirmed authorship and are not implied to endorse results. Commercial licensing: see COMMERCIAL-LICENSE.md. Do not mint a GitHub release until the Zenodo webhook is enabled."
+}
