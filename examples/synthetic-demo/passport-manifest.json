@@ -40,19 +40,19 @@
       "description": "Replay protocol bound to the event-free synthetic calibration replay hash.",
       "path": "oes_protocol.json",
       "role": "protocol",
-      "sha256": "98f3a40b8ca5c7e9d0456d22a8b87ef5500c88274f89b01d6be3003ab2d4ce58"
+      "sha256": "70c7d5b65a018ad6e0cf0894bbbb0712dbbc88300a09ef75e5dfcb18cc559df3"
     },
     {
       "description": "Run-level result and explicit evidence boundaries.",
       "path": "run_summary.json",
       "role": "run_summary",
-      "sha256": "1d275fdb796c0421190a605debca58785dabcb06b681ae9e66e098ca32ff846a"
+      "sha256": "367c8aa540b2955122a5fbb704308697bf02f4f1ac684d900342b64aeaf8b1e7"
     },
     {
       "description": "Output emitted by the official OES-Resilience replay command.",
       "path": "oes-results/synthetic_orbit_wave_report.json",
       "role": "upstream_oes_output",
-      "sha256": "c9a3272738f0533626607303b7cfbc01181370b5bcf358f9a376ee514f4a66f4"
+      "sha256": "3566d25816d7a93e92ef103bdf2921c8cec0c47d27f758900f820142bff1f1d6"
     },
     {
       "description": "Output emitted by the official OES-Resilience replay command.",
@@ -64,13 +64,13 @@
       "description": "Output emitted by the official OES-Resilience replay command.",
       "path": "oes-results/synthetic_orbit_wave_manifest.json",
       "role": "upstream_oes_output",
-      "sha256": "c7e0f75944c749eab5b521ddc11d115b5401d3733b90935df14d6dc24f77f0fc"
+      "sha256": "5efe5d52fa74e6086ae0dfb19d42aeb2a64fe13f36b7d933d60359eaacb7b968"
     },
     {
       "description": "Output emitted by the official OES-Resilience replay command.",
       "path": "oes-results/synthetic_orbit_wave_run_metadata.json",
       "role": "upstream_oes_output",
-      "sha256": "d0d7e31e282c45dd408c4f3036bd7b2bff760b9584ad8507cbaec3c4c270ca95"
+      "sha256": "4aa0bd38e5a213ea9e1e624ff4a8ea29afe068f5476390c1f96f0449593e5d51"
     }
   ],
   "baselines": [
@@ -78,8 +78,8 @@
     "official OES-Resilience oes32/maxabs detectors (only if requested)"
   ],
   "code": {
-    "commit": null,
-    "version": "0.1.0"
+    "commit": "873e83a81e1c4992e069a8813c92a2cf7809f904",
+    "version": "0.1.1"
   },
   "dataset": {
     "description": "No spacecraft, NV-diamond, audio-hardware, or field data is included.",
@@ -101,16 +101,16 @@
   ],
   "project": {
     "name": "Orbit\u2013Wave\u2013OES Lab",
-    "source_note": "Local release candidate; no public repository or tag exists yet.",
-    "source_url": null,
-    "version": "0.1.0"
+    "source_note": "Public repository; code.commit is the checked-out commit at build time, or null outside a git checkout.",
+    "source_url": "https://github.com/sparkainlp-x/orbit-wave-oes-lab",
+    "version": "0.1.1"
   },
   "protocol": {
     "description": "Protocol timestamp is written by the local runner; it is not independently time-verified and is not an external preregistration.",
     "lock_commit": null,
-    "locked_at": "2026-10-14T14:22:34+00:00",
+    "locked_at": "2026-10-14T15:26:34+00:00",
     "name": "OES-Resilience schema-2 synthetic demo protocol",
-    "sha256": "98f3a40b8ca5c7e9d0456d22a8b87ef5500c88274f89b01d6be3003ab2d4ce58",
+    "sha256": "70c7d5b65a018ad6e0cf0894bbbb0712dbbc88300a09ef75e5dfcb18cc559df3",
     "version": "1"
   },
   "result_label": "synthetic_example",

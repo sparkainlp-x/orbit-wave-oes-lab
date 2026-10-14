@@ -24,15 +24,14 @@ from .wave import DEFAULT_SEED, encode_symbol, run_threshold_experiment
 REPOSITORY_URL = "https://github.com/sparkainlp-x/orbit-wave-oes-lab"
 
 
-def _git_commit() -> str | None:
-    """Return the checked-out commit SHA at build time, or None outside a git checkout."""
-    git = shutil.which("git")
-    if git is None:
-        return None
+PROJECT_NAME = "orbit-wave-oes-lab"
+
+
+def _run_git(git: str, cwd: Path, *args: str) -> str | None:
     try:
         result = subprocess.run(  # noqa: S603 - fixed argv, no shell
-            [git, "rev-parse", "HEAD"],
-            cwd=Path(__file__).resolve().parent,
+            [git, *args],
+            cwd=cwd,
             capture_output=True,
             text=True,
             timeout=5,
@@ -40,8 +39,33 @@ def _git_commit() -> str | None:
         )
     except (OSError, subprocess.SubprocessError):
         return None
-    sha = result.stdout.strip()
-    if result.returncode != 0 or len(sha) != 40 or any(c not in "0123456789abcdef" for c in sha):
+    return result.stdout.strip() if result.returncode == 0 else None
+
+
+def _is_this_project(toplevel: Path) -> bool:
+    try:
+        text = (toplevel / "pyproject.toml").read_text(encoding="utf-8")
+    except (OSError, UnicodeError):
+        return False
+    return any(line.strip() == f'name = "{PROJECT_NAME}"' for line in text.splitlines())
+
+
+def _git_commit(start: Path | None = None) -> str | None:
+    """Return the checked-out commit SHA at build time, or None.
+
+    A SHA is returned only when the enclosing git work tree is this project
+    (its top-level pyproject.toml declares name = "orbit-wave-oes-lab"), so an
+    install that happens to sit inside some other repository records None.
+    """
+    git = shutil.which("git")
+    if git is None:
+        return None
+    cwd = start if start is not None else Path(__file__).resolve().parent
+    toplevel = _run_git(git, cwd, "rev-parse", "--show-toplevel")
+    if not toplevel or not _is_this_project(Path(toplevel)):
+        return None
+    sha = _run_git(git, cwd, "rev-parse", "HEAD")
+    if not sha or len(sha) != 40 or any(c not in "0123456789abcdef" for c in sha):
         return None
     return sha
 

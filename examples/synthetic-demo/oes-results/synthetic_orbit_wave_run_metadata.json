@@ -14,12 +14,12 @@
     "--verify",
     "--quiet"
   ],
-  "created_utc": "2026-10-14T14:22:35.136841+00:00",
-  "elapsed_seconds": 0.1238928169477731,
-  "manifest_sha256": "c7e0f75944c749eab5b521ddc11d115b5401d3733b90935df14d6dc24f77f0fc",
-  "numpy": "2.5.3",
-  "platform": "Linux-6.18.38+-x86_64-with-glibc2.39",
+  "created_utc": "2026-10-14T15:26:34.411520+00:00",
+  "elapsed_seconds": 0.08733193494845182,
+  "manifest_sha256": "5efe5d52fa74e6086ae0dfb19d42aeb2a64fe13f36b7d933d60359eaacb7b968",
+  "numpy": "2.5.4",
+  "platform": "Linux-6.12.94+-x86_64-with-glibc2.41",
   "project": "OES-Resilience",
-  "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+  "python": "3.13.5 (main, Aug 10 2026, 12:06:59) [GCC 14.2.0]",
   "version": "0.6.0"
 }
