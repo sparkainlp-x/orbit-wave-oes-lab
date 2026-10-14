@@ -103,3 +103,26 @@ def test_clipping_detected_at_full_scale_for_every_pcm_width(tmp_path, width):
     report = analyze_capture(reference, capture)
     assert report["capture_pcm_width_bytes"] == width
     assert report["capture_clipped_sample_fraction"] == pytest.approx(0.5)
+
+
+def test_capture_longer_than_ten_minutes_is_rejected(tmp_path):
+    from orbit_wave_oes_lab.audio import MAX_CAPTURE_SECONDS
+
+    reference = tmp_path / "reference.wav"
+    capture = tmp_path / "long-capture.wav"
+    write_reference_wav(reference, sample_rate_hz=32_000)
+    with wave.open(str(capture), "wb") as dst:
+        dst.setnchannels(2)
+        dst.setsampwidth(2)
+        dst.setframerate(32_000)
+        dst.writeframes(b"\x00" * 4 * 32)
+    # Patch the RIFF/data sizes so the header declares 10 minutes plus one second,
+    # without writing ~77 MB of samples; the length check runs before decoding.
+    data = bytearray(capture.read_bytes())
+    declared_bytes = (MAX_CAPTURE_SECONDS + 1) * 32_000 * 4
+    index = data.index(b"data")
+    data[index + 4:index + 8] = declared_bytes.to_bytes(4, "little")
+    data[4:8] = (len(data) - 8 - 4 * 32 + declared_bytes).to_bytes(4, "little")
+    capture.write_bytes(bytes(data))
+    with pytest.raises(AudioCalibrationError, match="longer than 600 s"):
+        analyze_capture(reference, capture)

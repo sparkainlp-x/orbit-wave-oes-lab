@@ -15,6 +15,7 @@ from typing import Any
 
 FREQUENCIES_HZ = (125, 250, 500, 1000, 2000, 4000, 8000)
 PROTOCOL_VERSION = "1"
+MAX_CAPTURE_SECONDS = 600
 
 
 class AudioCalibrationError(ValueError):
@@ -113,7 +114,9 @@ def write_reference_wav(
     return protocol
 
 
-def _read_pcm_stereo(path: Path) -> tuple[int, list[tuple[float, float]], int]:
+def _read_pcm_stereo(
+    path: Path, *, max_seconds: float | None = None,
+) -> tuple[int, list[tuple[float, float]], int]:
     try:
         with wave.open(str(path), "rb") as source:
             channels = source.getnchannels()
@@ -121,6 +124,11 @@ def _read_pcm_stereo(path: Path) -> tuple[int, list[tuple[float, float]], int]:
             sample_rate = source.getframerate()
             frame_count = source.getnframes()
             compression = source.getcomptype()
+            if max_seconds is not None and sample_rate > 0 and frame_count / sample_rate > max_seconds:
+                raise AudioCalibrationError(
+                    f"{path} is {frame_count / sample_rate:.1f} s long; captures longer than "
+                    f"{max_seconds:g} s ({max_seconds / 60:g} minutes) are rejected"
+                )
             raw = source.readframes(frame_count)
     except (OSError, EOFError, wave.Error) as exc:
         raise AudioCalibrationError(f"cannot read WAV {path}: {exc}") from exc
@@ -208,7 +216,7 @@ def analyze_capture(
         raise AudioCalibrationError("reference WAV SHA-256 does not match its protocol sidecar")
 
     ref_rate, ref_samples, ref_width = _read_pcm_stereo(reference_path)
-    cap_rate, cap_samples, cap_width = _read_pcm_stereo(capture_path)
+    cap_rate, cap_samples, cap_width = _read_pcm_stereo(capture_path, max_seconds=MAX_CAPTURE_SECONDS)
     if ref_rate != protocol.get("sample_rate_hz"):
         raise AudioCalibrationError("reference WAV sample rate does not match its protocol")
     if cap_rate != ref_rate:
