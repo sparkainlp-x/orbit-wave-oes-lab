@@ -1,15 +1,30 @@
-# Orbit–Wave–OES Lab (release candidate)
+# Orbit–Wave–OES Lab
 
-**Status: local public-release candidate for review — not published.**  
-**Evidence class: SYNTHETIC.**  
-**Proposed software license: AGPL-3.0-only.**
+**Evidence class: SYNTHETIC** (orbit, payload, telemetry and the bundled demo).  
+**Physical orbit, spacecraft hardware, quantum devices, NV-center physics, audio hardware and acoustic calibration: UNRUN.**  
+**License: AGPL-3.0-only** ([LICENSE](LICENSE)); commercial terms: [COMMERCIAL-LICENSE.md](COMMERCIAL-LICENSE.md).
 
 A reproducible, software-only path from a stylized orbital timeline to a synthetic signed-wave payload, fixed-threshold readout, optional OES telemetry replay, and a static evidence passport. It also includes an **offline analog binaural calibration workflow**: generate a stereo test WAV, capture it through the actual analog/audio path with external equipment, then analyze the user-provided two-channel PCM WAV. The tool does not play sound, open an audio device, or claim that any hardware was calibrated.
+
+## Evidence status
+
+| Layer | Status |
+|---|---|
+| Normalized orbit/environment timeline | **SYNTHETIC** |
+| Signed-amplitude sine payload and fixed-threshold readout | **SYNTHETIC** (classical arithmetic) |
+| 512-channel telemetry frames and injected events | **SYNTHETIC** |
+| Bundled demo and evidence passport | **SYNTHETIC**; SHA-256 checks file consistency only |
+| Optional OES-Resilience replay scoring | Software path; inputs are synthetic |
+| Analog binaural reference WAV generation | **SYNTHETIC** stimulus |
+| Analysis of a user-provided capture WAV | Reports digital relative response only; path authenticity **UNRUN** |
+| Real orbit propagator, mission ephemeris, spacecraft sensors | **UNRUN** |
+| Quantum device, QKD, NV-center / spin Hamiltonian | **UNRUN** (not modelled) |
+| Acoustic / transducer calibration with traceable sensitivity | **UNRUN** |
 
 ## Pipeline
 
 1. **Orbit/environment timeline** — normalized circular coordinates and a declared synthetic illumination/shadow window, with a dimensionless thermal proxy. No real orbit propagator, mission ephemeris, spacecraft measurements, or flight environment is used.
-2. **Wave/payload model** — binary symbols are represented by the signed-amplitude sine convention associated with Mun Seok Lee's *Digital to Wave* preprint. This is a classical sampled waveform test, not an NV-center or quantum-state simulation.
+2. **Wave/payload model** — binary symbols are represented by the signed-amplitude sine convention associated with Mun Seok Lee's *Digital to Wave* preprint (doi:10.5281/zenodo.21947036). This is a classical sampled waveform test, not an NV-center or quantum-state simulation.
 3. **Calibration/readout** — reproduces the supplied seeded Gaussian-noise/session-drift example: a single threshold is fit on calibration sessions and held fixed for independent held-out sessions. Confusion counts and per-session accuracy are recorded.
 4. **Telemetry replay** — makes clearly labeled synthetic 512-channel frames and known injected events. The optional `--with-oes` path delegates replay scoring to the public OES-Resilience package instead of claiming a locally invented OES result.
 5. **Evidence passport** — packages the protocol, output hashes, metrics, interpretation, and limitations into static HTML plus normalized JSON. SHA-256 verifies file consistency only; it does not prove authorship, timing, measurement validity, or provenance.
@@ -57,23 +72,31 @@ Upstream real-data evidence is separate from this demo. OES-Resilience v0.5.0 re
 
 The binary readout's calibration set and held-out set are separate. The OES path likewise scores an evaluation replay separately from an event-free calibration replay. The two calibration procedures are distinct and their metrics are not combined.
 
-## Evidence and scope boundaries
+## Limitations
 
-- The separate local `orbit-quantum-lab` prototype was not copied into this candidate: its package metadata says it is unlicensed/local-only and its source files do not declare a named author. This repository implements the requested simpler normalized orbit/environment timeline anew; it does not bundle the original resource-sweep engine.
 - Orbit, environmental states, payload signals, injected telemetry events, and the bundled run are **synthetic**. Parameters are demonstration inputs, not validated mission or payload specifications.
-- The wave output is classical arithmetic. No quantum device, qubit, NV-center spin, density matrix, quantum error correction, or physical “quantum effect” is simulated or validated.
+- The wave output is classical arithmetic. No quantum device, qubit, NV-center spin, density matrix, quantum error correction, QKD, quantum-secured link, or physical “quantum effect” is simulated or validated.
 - A 4,096-element code space, if used by a downstream user, is only a digital code space; it is not evidence of 4,096 resolvable physical states.
-- The Digital-to-Wave Part I preprint is credited for the signed-amplitude sine equation; the supplied 103-page Part II preprint and the two-page project brief are context/specification only. This project does not reproduce the preprints' physical proposals, establish that they describe any Pacifica Intelligence or Somnath Laha device, or imply affiliation with either.
-- OES receives synthetic arrays generated by this project. OES replay success is a software-path check only, not evidence of satellite telemetry performance or detector superiority.
+- The Digital-to-Wave Part I preprint is credited for the signed-amplitude sine equation; Part II is cited for context only. This project does not reproduce the preprints' physical proposals.
+- OES receives synthetic arrays generated by this project. OES replay success is a software-path check only, not evidence of satellite telemetry performance or detector superiority. This project does not claim to beat SMAP/MSL.
 - The binaural analyzer only processes a WAV supplied by the user. A WAV file does not authenticate that it came from an analog path, and digital loopback is not the same as acoustic binaural calibration.
-- This candidate does not make operational, clinical, security, safety, mission-readiness, or quantum-advantage claims.
+- This software does not make operational, clinical, security, safety, mission-readiness, flight, or quantum-advantage claims.
+
+## Acknowledgements and collaborators
+
+Collaboration credit (not authorship of this software; neither person has confirmed authorship or is implied to endorse results):
+
+- **Mun Seok Lee** — credited for the wave-component concept. The signed-amplitude sine equation used here follows Lee's *Digital to Wave* Part I preprint (doi:[10.5281/zenodo.21947036](https://doi.org/10.5281/zenodo.21947036), ORCID [0009-0003-6627-8507](https://orcid.org/0009-0003-6627-8507)). Part II (doi:[10.5281/zenodo.21947108](https://doi.org/10.5281/zenodo.21947108)) is cited for context only.
+- **Somnath Laha (CSIR-CMERI)** — credited for related discussion of the satellite / quantum-secured communication concept that motivated the ground-first orbit framing. This repository implements only a classical synthetic orbit timeline and does **not** implement quantum-secured communication, QKD, or any satellite hardware interface. Affiliation is recorded as given; no endorsement of results is implied.
+
+Both appear as `contributors` of type `Other` in [`.zenodo.json`](.zenodo.json), not as `creators`. See also [`NOTICE`](NOTICE) and [`SOURCES.md`](SOURCES.md).
 
 ## Attribution and license
 
-The project brief identifies **Spark AI NLP** as its author; the linked `sparkainlp-x` GitHub profile identifies **Jean-François Brisson**. The upstream software repositories also list Brisson as author and each declares **AGPL-3.0-only**. GitHub contributor metadata additionally lists one unresolved `Copilot` contribution to Digital to Wave Testbench; no source from that repository is copied. The evidence-passport validator bundled under `src/orbit_wave_oes_lab/vendor/` is byte-identical to its v0.1.0 release; its attribution, checksum, and source link are in [`NOTICE`](NOTICE). The optional OES integration calls upstream OES-Resilience v0.6.0; it is not a local reimplementation.
+Software author: **Jean-François Brisson (Spark AI NLP)**, ORCID [0009-0000-9778-5374](https://orcid.org/0009-0000-9778-5374). The evidence-passport validator bundled under `src/orbit_wave_oes_lab/vendor/` is byte-identical to its v0.1.0 release; its attribution, checksum, and source link are in [`NOTICE`](NOTICE). The optional OES integration calls upstream OES-Resilience v0.6.0; it is not a local reimplementation.
 
-The signed-amplitude sine equation is credited to **Mun Seok Lee's Part I** preprint. **Part II** is cited for context only; the upstream citation record says it does not contain the implemented equation. The supplied concept brief credits **Spark AI NLP**. See [`CITATION.cff`](CITATION.cff) and [`NOTICE`](NOTICE). No preprint text, figures, or PDF is redistributed. The license applies to this software candidate and is **AGPL-3.0-only**; see [`LICENSE`](LICENSE). Third-party content remains under its own stated terms.
+License: **AGPL-3.0-only**; see [`LICENSE`](LICENSE). Commercial use without AGPL obligations: [`COMMERCIAL-LICENSE.md`](COMMERCIAL-LICENSE.md). Third-party content remains under its own stated terms. No preprint text, figures, or PDF is redistributed.
 
-## Public-release state
+## Review
 
-As of 2026-10-14, `sparkainlp-x/orbit-wave-oes-lab` is not found on GitHub; no repository, tag, Zenodo deposit, push, or public deployment has been created. Public launch requires review of the exact contents, author line, and AGPL-3.0-only choice, plus explicit approval to create and publish the repository.
+See [`REVIEW_GUIDE.md`](REVIEW_GUIDE.md) for a short reviewer path, and [`CITATION.cff`](CITATION.cff) / [`.zenodo.json`](.zenodo.json) for citation metadata.
