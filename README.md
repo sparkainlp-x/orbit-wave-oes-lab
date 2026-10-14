@@ -97,6 +97,10 @@ Software author: **Jean-François Brisson (Spark AI NLP)**, ORCID [0009-0000-977
 
 License: **AGPL-3.0-only**; see [`LICENSE`](LICENSE). Commercial use without AGPL obligations: [`COMMERCIAL-LICENSE.md`](COMMERCIAL-LICENSE.md). Third-party content remains under its own stated terms. No preprint text, figures, or PDF is redistributed.
 
+## Citation
+
+Archived on Zenodo: concept DOI [10.5281/zenodo.23372536](https://doi.org/10.5281/zenodo.23372536) (all versions). Version DOI for v0.1.0: [10.5281/zenodo.23372537](https://doi.org/10.5281/zenodo.23372537).
+
 ## Review
 
 See [`REVIEW_GUIDE.md`](REVIEW_GUIDE.md) for a short reviewer path, and [`CITATION.cff`](CITATION.cff) / [`.zenodo.json`](.zenodo.json) for citation metadata.
