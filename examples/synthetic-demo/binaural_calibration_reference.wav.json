@@ -1,0 +1,115 @@
+{
+  "channels": [
+    "left stimulus",
+    "right stimulus"
+  ],
+  "gap_duration_seconds": 0.1,
+  "preamble_duration_seconds": 0.25,
+  "protocol_version": "1",
+  "reference_wav_sha256": "79bdc062e757d295f1485259b48baff54b6ea9b9faf6909da7b2505f9b9ea66c",
+  "sample_format": "PCM signed 16-bit little-endian",
+  "sample_rate_hz": 48000,
+  "schema": "orbit-wave-oes/binaural-calibration-reference/1",
+  "segments": [
+    {
+      "end_sample": 31200,
+      "frequency_hz": 125,
+      "start_sample": 12000,
+      "stimulus_channel": 0,
+      "tone_level_full_scale": 0.25
+    },
+    {
+      "end_sample": 55200,
+      "frequency_hz": 125,
+      "start_sample": 36000,
+      "stimulus_channel": 1,
+      "tone_level_full_scale": 0.25
+    },
+    {
+      "end_sample": 79200,
+      "frequency_hz": 250,
+      "start_sample": 60000,
+      "stimulus_channel": 0,
+      "tone_level_full_scale": 0.25
+    },
+    {
+      "end_sample": 103200,
+      "frequency_hz": 250,
+      "start_sample": 84000,
+      "stimulus_channel": 1,
+      "tone_level_full_scale": 0.25
+    },
+    {
+      "end_sample": 127200,
+      "frequency_hz": 500,
+      "start_sample": 108000,
+      "stimulus_channel": 0,
+      "tone_level_full_scale": 0.25
+    },
+    {
+      "end_sample": 151200,
+      "frequency_hz": 500,
+      "start_sample": 132000,
+      "stimulus_channel": 1,
+      "tone_level_full_scale": 0.25
+    },
+    {
+      "end_sample": 175200,
+      "frequency_hz": 1000,
+      "start_sample": 156000,
+      "stimulus_channel": 0,
+      "tone_level_full_scale": 0.25
+    },
+    {
+      "end_sample": 199200,
+      "frequency_hz": 1000,
+      "start_sample": 180000,
+      "stimulus_channel": 1,
+      "tone_level_full_scale": 0.25
+    },
+    {
+      "end_sample": 223200,
+      "frequency_hz": 2000,
+      "start_sample": 204000,
+      "stimulus_channel": 0,
+      "tone_level_full_scale": 0.25
+    },
+    {
+      "end_sample": 247200,
+      "frequency_hz": 2000,
+      "start_sample": 228000,
+      "stimulus_channel": 1,
+      "tone_level_full_scale": 0.25
+    },
+    {
+      "end_sample": 271200,
+      "frequency_hz": 4000,
+      "start_sample": 252000,
+      "stimulus_channel": 0,
+      "tone_level_full_scale": 0.25
+    },
+    {
+      "end_sample": 295200,
+      "frequency_hz": 4000,
+      "start_sample": 276000,
+      "stimulus_channel": 1,
+      "tone_level_full_scale": 0.25
+    },
+    {
+      "end_sample": 319200,
+      "frequency_hz": 8000,
+      "start_sample": 300000,
+      "stimulus_channel": 0,
+      "tone_level_full_scale": 0.25
+    },
+    {
+      "end_sample": 343200,
+      "frequency_hz": 8000,
+      "start_sample": 324000,
+      "stimulus_channel": 1,
+      "tone_level_full_scale": 0.25
+    }
+  ],
+  "tone_duration_seconds": 0.4,
+  "warning": "Generated digital stimulus only; not an analog calibration or acoustic level reference."
+}

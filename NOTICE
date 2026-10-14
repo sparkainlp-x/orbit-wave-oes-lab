@@ -1,0 +1,42 @@
+# Notices and attribution
+
+## Candidate authorship
+
+The two-page *Orbit–Wave–OES Lab: A Ground-First Satellite Simulator for a Hypothetical Wave-Sensor Payload* discussion brief (13 October 2026) names **Spark AI NLP** as its author. The GitHub account `sparkainlp-x` is publicly identified as **Jean-François Brisson**. The proposed software author/maintainer line is therefore **Jean-François Brisson (Spark AI NLP)**, subject to the user's final review before publication. The candidate's `CITATION.cff` records that person and affiliation.
+
+The separate local `orbit-quantum-lab` prototype is **not included**. Its package metadata marks it unlicensed/local-only and its source files do not name an author; this candidate therefore does not copy or relicense its resource-sweep code. The normalized orbit/environment timeline in this repository is a fresh implementation of the simple concept described in the task.
+
+## Vendored software
+
+`src/orbit_wave_oes_lab/vendor/evidence_passport.py` is copied byte-for-byte from the **Evidence Passport v0.1.0** release:
+
+- Author: **Jean-François Brisson / Spark AI NLP**
+- Source: https://github.com/sparkainlp-x/evidence-passport/tree/v0.1.0
+- Version DOI: https://doi.org/10.5281/zenodo.23165144
+- License: **GNU Affero General Public License v3.0 only (AGPL-3.0-only)**
+- SHA-256: `1e9d4f9ce9f6d1bbd68f87b9c325d4f9e5a2dc160c1dbc322a1a7e3771cf6b16`
+
+The vendored file's digest matches the upstream v0.1.0 source; it is not updated to the different current `main` version. The exact upstream AGPL license text is included as `LICENSE`; its SHA-256 matches the upstream license. The vendor notice is also included in the package.
+
+## Referenced upstream software (not vendored except as noted above)
+
+The four repositories below identify Jean-François Brisson in their `CITATION.cff` author metadata and declare **AGPL-3.0-only**. The optional OES adapter invokes the official OES-Resilience v0.6.0 CLI; it does not copy the detector implementation.
+
+- Digital to Wave Testbench — https://github.com/sparkainlp-x/digital-to-wave-testbench — DOI: https://doi.org/10.5281/zenodo.23122876
+- OES telemetry bench — https://github.com/sparkainlp-x/oes-telemetry-bench — DOI: https://doi.org/10.5281/zenodo.23175492
+- OES-Resilience — https://github.com/sparkainlp-x/oes-resilience — DOI: https://doi.org/10.5281/zenodo.23071166
+- Evidence Passport — https://github.com/sparkainlp-x/evidence-passport — DOI: https://doi.org/10.5281/zenodo.23165143
+
+### Contributor metadata snapshot (2026-10-14)
+
+GitHub's public contributor API lists `sparkainlp-x` as the sole named contributor login for OES telemetry bench (6 contributions), OES-Resilience (48), and Evidence Passport (10); the profile identifies it as Jean-François Brisson. Digital to Wave Testbench lists the same account (17 contributions) and a separate `Copilot` entry (1 contribution). That account has no publicly resolvable human identity in the checked API response, so it is acknowledged as an upstream contributor entry—not attributed as a human author of this candidate. No source code from Digital to Wave Testbench is vendored here.
+
+## Conceptual, scientific, and dataset sources
+
+- Mun Seok Lee, “Digital to Wave: Paradigm Shift in Quantum Wave-Based Computing and Lab-Grown Diamond Memory,” Part I preprint, https://doi.org/10.5281/zenodo.21947036, CC BY 4.0 as recorded in the upstream Digital to Wave Testbench citation metadata. This is the source cited for the signed-amplitude sine equation; it is not evidence that a physical NV device implements this model.
+- Mun Seok Lee, “Digital to Wave: LGD In Situ Wave Memory-Human Wave Integrated Interface-Metaverse Hologram- Wave Affective AI,” Part II preprint, https://doi.org/10.5281/zenodo.21947108, CC BY 4.0 as recorded in the upstream citation metadata. The supplied PDF calls itself “Preprint-Patent pending”; its own extracted text does not state a license. It is cited for context only, contains no equation implemented by this project according to the upstream Part I citation record, and is not redistributed. Its title page identifies “Independent Researcher LEE, MUN SEOK”; its PDF metadata separately says `PC2510`.
+- *Orbit–Wave–OES Lab* preliminary concept brief, 13 October 2026, author field **Spark AI NLP**, supplied by the user. Used as a project specification, not redistributed as a separate document.
+- The user-supplied 10-page engineering concept PDF (`~EngineeringAnswersFor21_복사본.pdf`) is attributed within that document to Mun Seok Lee (dated 2026-10-11). It is treated as user-provided conceptual context, not as a software license or evidence of device performance.
+- The upstream OES-Resilience v0.5.0 SMAP/MSL evaluation cites Hundman et al. (2018), https://doi.org/10.1145/3219819.3219845. That public-dataset benchmark is distinct from this candidate's synthetic replay and did not meet its preregistered success criterion.
+
+No text, figure, or PDF is copied from the cited Digital-to-Wave preprints. Third-party works retain their own licenses. This project makes no claim of association with, or validation of, any Pacifica Intelligence or Somnath Laha device. No device identity match was established from the supplied PDF.

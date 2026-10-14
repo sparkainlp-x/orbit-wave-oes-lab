@@ -1,0 +1,29 @@
+{
+  "detectors": [
+    "oes32",
+    "maxabs"
+  ],
+  "event_hit_rule": "any_alert_frame_during_event",
+  "latency_rule": "first_alert_frame_minus_first_event_frame_ms",
+  "localization_rule": "framewise_micro_precision_recall_iou",
+  "locked_at": "2026-10-14T14:22:34+00:00",
+  "protocol_id": "orbit-wave-oes-synthetic-demo-v1",
+  "schema_version": 2,
+  "score_spec": {
+    "block_size": 32,
+    "channel_count": 512,
+    "comparison": ">=",
+    "weights": {
+      "mean_abs": 0.2,
+      "peak_abs": 0.45,
+      "rms": 0.35
+    }
+  },
+  "threshold_policy": {
+    "calibration_sha256": "e8716c2829873f1f1929e6420cb2c7f33b64133ee0e55856be80783682549e20",
+    "mode": "calibrated",
+    "target_fp": 0.05,
+    "unit": "frame"
+  },
+  "warmup": 8
+}

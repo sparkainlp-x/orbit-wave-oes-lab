@@ -1,0 +1,3 @@
+detector,threshold,threshold_source,regime,frame_count,event_count,detected_event_count,event_recall,missed_event_ids,no_event_frame_count,false_positive_frame_count,false_positive_frame_rate,false_positive_frames_per_10min,false_positive_alarm_episodes_per_10min,localization_precision,localization_recall,localization_iou,mean_latency_ms,median_latency_ms
+oes32,0.110147107914,calibrated,synthetic_orbit_demo,80,2,2,1.0,,75,12,0.16,1.5,1.25,0.714285714286,1.0,0.714285714286,0.0,0.0
+maxabs,0.179774799669,calibrated,synthetic_orbit_demo,80,2,2,1.0,,75,8,0.106666666667,1.0,0.875,0.777777777778,1.0,0.777777777778,0.0,0.0

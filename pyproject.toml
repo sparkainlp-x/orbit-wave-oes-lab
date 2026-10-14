@@ -1,0 +1,54 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "orbit-wave-oes-lab"
+version = "0.1.0"
+description = "Synthetic orbit-to-wave payload, fixed-threshold readout, OES replay and offline binaural capture analysis"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "AGPL-3.0-only"
+license-files = ["LICENSE", "NOTICE"]
+authors = [{ name = "Jean-François Brisson" }]
+keywords = ["synthetic", "orbit", "telemetry", "signal-processing", "audio-calibration", "reproducibility"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Science/Research",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Operating System :: OS Independent",
+]
+dependencies = []
+
+[project.optional-dependencies]
+test = ["pytest>=7"]
+oes = [
+  "numpy>=1.23",
+  "oes-resilience @ git+https://github.com/sparkainlp-x/oes-resilience.git@v0.6.0",
+]
+
+[project.scripts]
+orbit-wave-oes = "orbit_wave_oes_lab.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+orbit_wave_oes_lab = ["vendor/NOTICE"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"
+
+[tool.ruff]
+extend-exclude = ["src/orbit_wave_oes_lab/vendor/**"]
+
+[tool.ruff.lint]
+extend-select = ["S"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**" = ["S101"]

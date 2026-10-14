@@ -1,0 +1,164 @@
+{
+  "comparison_is_calibrated": true,
+  "detectors": {
+    "maxabs": {
+      "params": {},
+      "regimes": {
+        "synthetic_orbit_demo": {
+          "alarm_frame_count": 13,
+          "block_localization": {
+            "annotated_frame_count": 80,
+            "fn_blocks_across_frames": 0,
+            "fp_blocks_across_frames": 10,
+            "iou": 0.7777777777777778,
+            "precision": 0.7777777777777778,
+            "recall": 1.0,
+            "tp_blocks_across_frames": 35
+          },
+          "detected_event_count": 2,
+          "detection_latency_ms": {
+            "by_event_id": {
+              "synthetic-event-global-02": 0.0,
+              "synthetic-event-local-01": 0.0
+            },
+            "mean": 0.0,
+            "median": 0.0
+          },
+          "event_count": 2,
+          "event_frame_count": 5,
+          "event_recall": 1.0,
+          "false_positive_alarm_episode_count": 7,
+          "false_positive_alarm_episodes_per_10min": 0.875,
+          "false_positive_frame_count": 8,
+          "false_positive_frame_rate": 0.10666666666666667,
+          "false_positive_frames_per_10min": 1.0,
+          "frame_count": 80,
+          "missed_event_count": 0,
+          "missed_event_ids": [],
+          "no_event_frame_count": 75,
+          "observed_exposure_seconds": 4800.0
+        }
+      },
+      "rule": "score = max|x| per 32-channel block; detected if score >= threshold",
+      "temporal": false
+    },
+    "oes32": {
+      "params": {
+        "weights": {
+          "maximum": 0.45,
+          "mean_absolute": 0.2,
+          "rms": 0.35
+        }
+      },
+      "regimes": {
+        "synthetic_orbit_demo": {
+          "alarm_frame_count": 17,
+          "block_localization": {
+            "annotated_frame_count": 80,
+            "fn_blocks_across_frames": 0,
+            "fp_blocks_across_frames": 14,
+            "iou": 0.7142857142857143,
+            "precision": 0.7142857142857143,
+            "recall": 1.0,
+            "tp_blocks_across_frames": 35
+          },
+          "detected_event_count": 2,
+          "detection_latency_ms": {
+            "by_event_id": {
+              "synthetic-event-global-02": 0.0,
+              "synthetic-event-local-01": 0.0
+            },
+            "mean": 0.0,
+            "median": 0.0
+          },
+          "event_count": 2,
+          "event_frame_count": 5,
+          "event_recall": 1.0,
+          "false_positive_alarm_episode_count": 10,
+          "false_positive_alarm_episodes_per_10min": 1.25,
+          "false_positive_frame_count": 12,
+          "false_positive_frame_rate": 0.16,
+          "false_positive_frames_per_10min": 1.5,
+          "frame_count": 80,
+          "missed_event_count": 0,
+          "missed_event_ids": [],
+          "no_event_frame_count": 75,
+          "observed_exposure_seconds": 4800.0
+        }
+      },
+      "rule": "score = w_max*max|x| + w_rms*RMS(x) + w_mean*mean|x| per 32-channel block; detected if score >= threshold",
+      "temporal": false
+    }
+  },
+  "evidence": "results describe the supplied replay only; synthetic inputs give SYNTHETIC results",
+  "fairness_note": null,
+  "input": {
+    "calibration_frame_count": 80,
+    "calibration_sha256": "e8716c2829873f1f1929e6420cb2c7f33b64133ee0e55856be80783682549e20",
+    "frame_count": 80,
+    "incumbent_available": false,
+    "regimes_in_first_seen_order": [
+      "synthetic_orbit_demo"
+    ],
+    "sha256": "d90ae5d5cc6d68b92096b7a9b824f1bfc8f55ca914c247727ba8f2ddb020a404"
+  },
+  "metric_definitions": {
+    "calibration": "frame unit, maximum block score per frame, per-regime rule of calibrate_threshold",
+    "event_recall": "fraction of contiguous event_id episodes with at least one alarm frame",
+    "false_positive_frame_rate": "alarm frames among labelled no-event frames",
+    "latency_ms": "first alarm frame minus the first frame of the event episode; missed events are null",
+    "localization": "framewise block micro precision, recall and IoU over frames with affected_blocks",
+    "per_10min": "counts per contiguous regime exposure; each final sample extends by the median interval",
+    "temporal_detectors": "run over the whole replay as one stream; the first `warmup` frames score 0"
+  },
+  "protocol": {
+    "locked_at": "2026-10-14T14:22:34+00:00",
+    "protocol_id": "orbit-wave-oes-synthetic-demo-v1",
+    "schema_version": 2,
+    "score": "oes32 = 0.45 * max|x| + 0.35 * RMS(x) + 0.20 * mean|x| per 32-channel block; score >= threshold",
+    "sha256": "98f3a40b8ca5c7e9d0456d22a8b87ef5500c88274f89b01d6be3003ab2d4ce58",
+    "threshold_policy": {
+      "calibration_sha256": "e8716c2829873f1f1929e6420cb2c7f33b64133ee0e55856be80783682549e20",
+      "mode": "calibrated",
+      "target_fp": 0.05,
+      "unit": "frame"
+    },
+    "warmup_for_temporal_detectors": 8
+  },
+  "report_schema_version": 2,
+  "scope": "offline replay evaluation only; not an operational alarm or process-control function",
+  "thresholds": {
+    "maxabs": {
+      "calibration": {
+        "per_regime": {
+          "synthetic_orbit_demo": {
+            "allowed_exceedances": 4,
+            "calibration_fp_rate": 0.05,
+            "n": 80,
+            "threshold": 0.1797747996685691
+          }
+        },
+        "target_fp": 0.05,
+        "threshold": 0.1797747996685691
+      },
+      "source": "calibrated",
+      "threshold": 0.1797747996685691
+    },
+    "oes32": {
+      "calibration": {
+        "per_regime": {
+          "synthetic_orbit_demo": {
+            "allowed_exceedances": 4,
+            "calibration_fp_rate": 0.05,
+            "n": 80,
+            "threshold": 0.11014710791357701
+          }
+        },
+        "target_fp": 0.05,
+        "threshold": 0.11014710791357701
+      },
+      "source": "calibrated",
+      "threshold": 0.11014710791357701
+    }
+  }
+}

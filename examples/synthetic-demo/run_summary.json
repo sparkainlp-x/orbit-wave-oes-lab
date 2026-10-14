@@ -1,0 +1,91 @@
+{
+  "analog_binaural_calibration": {
+    "audio_device_opened_or_played": false,
+    "capture_status": "NOT_PROVIDED",
+    "hardware_calibration_claimed": false,
+    "reference_protocol": "binaural_calibration_reference.wav.json",
+    "reference_wav": "binaural_calibration_reference.wav"
+  },
+  "evidence_class": "SYNTHETIC",
+  "limitations": [
+    "All orbit/environment, payload, telemetry and injected events in the bundled demo are synthetic.",
+    "Orbit coordinates are normalized; the illumination window and thermal/radiation proxies are not calibrated to an actual orbit or spacecraft.",
+    "Wave encoding and binary readout are classical software calculations; no quantum state, NV center, spin Hamiltonian or physical quantum effect is simulated.",
+    "The optional OES run evaluates synthetic 512-value frames only; replay success does not establish field performance or detector superiority.",
+    "The generated stereo reference is a digital stimulus, not a calibration result; no audio device is opened or played by this program.",
+    "A user-supplied capture WAV is not authenticated as analog; digital gain ratios are not volts, SPL, microphone sensitivity or traceable calibration.",
+    "SHA-256 matching proves byte consistency with this manifest only; it does not prove authorship, timing, measurement validity or provenance.",
+    "The project does not test or validate any device associated with Pacifica Intelligence or Somnath Laha and claims no affiliation."
+  ],
+  "normalized_orbit_period_steps": 40,
+  "oes_replay": {
+    "interpretation_note": "These metrics score only the synthetic held-out replay. The configured 5% false-positive target applies to calibration data, not a guarantee on evaluation data.",
+    "metrics_by_detector_and_regime": {
+      "maxabs": {
+        "synthetic_orbit_demo": {
+          "detected_event_count": 2,
+          "detection_latency_ms": {
+            "by_event_id": {
+              "synthetic-event-global-02": 0.0,
+              "synthetic-event-local-01": 0.0
+            },
+            "mean": 0.0,
+            "median": 0.0
+          },
+          "event_count": 2,
+          "event_recall": 1.0,
+          "false_positive_frame_count": 8,
+          "false_positive_frame_rate": 0.10666666666666667,
+          "localization_iou": 0.7777777777777778
+        }
+      },
+      "oes32": {
+        "synthetic_orbit_demo": {
+          "detected_event_count": 2,
+          "detection_latency_ms": {
+            "by_event_id": {
+              "synthetic-event-global-02": 0.0,
+              "synthetic-event-local-01": 0.0
+            },
+            "mean": 0.0,
+            "median": 0.0
+          },
+          "event_count": 2,
+          "event_recall": 1.0,
+          "false_positive_frame_count": 12,
+          "false_positive_frame_rate": 0.16,
+          "localization_iou": 0.7142857142857143
+        }
+      }
+    },
+    "report_path": "oes-results/synthetic_orbit_wave_report.json",
+    "returncode": 0,
+    "scorecard_path": "oes-results/synthetic_orbit_wave_scorecard.csv",
+    "status": "completed_by_upstream_oes_resilience",
+    "stdout": "",
+    "upstream_repository": "https://github.com/sparkainlp-x/oes-resilience",
+    "upstream_version": "0.6.0"
+  },
+  "orbit_timeline_frames": 80,
+  "payload_readout": {
+    "confusion_matrix_actual_rows_predicted_columns": [
+      [
+        662,
+        338
+      ],
+      [
+        178,
+        822
+      ]
+    ],
+    "frozen_threshold_arbitrary_units": 0.4258107647255535,
+    "heldout_accuracy": 0.742,
+    "mean_label_0_calibration": -0.04543609865376527,
+    "mean_label_1_calibration": 0.8970576281048723,
+    "threshold_source": "calibration sessions only; not updated on held-out data"
+  },
+  "project": "Orbit\u2013Wave\u2013OES Lab",
+  "schema": "orbit-wave-oes/demo-summary/1",
+  "seed": 20261011,
+  "version": "0.1.0"
+}

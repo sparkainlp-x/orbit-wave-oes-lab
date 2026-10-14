@@ -1,0 +1,12 @@
+{
+  "files": {
+    "synthetic_orbit_wave_report.json": {
+      "sha256": "c9a3272738f0533626607303b7cfbc01181370b5bcf358f9a376ee514f4a66f4"
+    },
+    "synthetic_orbit_wave_scorecard.csv": {
+      "sha256": "481b0170f261b73fbca2ac07db865d6419913e49014d7388e756557326a2debf"
+    }
+  },
+  "project": "OES-Resilience",
+  "version": "0.6.0"
+}

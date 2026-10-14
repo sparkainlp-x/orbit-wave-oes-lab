@@ -1,0 +1,110 @@
+cff-version: 1.2.0
+message: "If you use this software, cite the release using this metadata. All bundled experiment outputs are SYNTHETIC; analog-capture reports depend on user-provided WAV files and are not independently authenticated."
+title: "Orbit–Wave–OES Lab: synthetic orbit, wave-payload, telemetry replay, and binaural capture analysis"
+type: software
+authors:
+  - family-names: "Brisson"
+    given-names: "Jean-François"
+    affiliation: "Spark AI NLP"
+    orcid: "https://orcid.org/0009-0000-9778-5374"
+version: "0.1.0"
+license: "AGPL-3.0-only"
+repository-code: "https://github.com/sparkainlp-x/orbit-wave-oes-lab"
+abstract: >-
+  Local release candidate combining a synthetic normalized orbit/environment
+  timeline, signed-amplitude sine payload encoding, fixed-threshold synthetic
+  readout, optional official OES-Resilience replay, static SHA-256 evidence
+  passport, and offline analysis of a user-provided stereo analog-capture WAV.
+  No physical orbit, quantum device, NV-center, audio hardware, or mission
+  performance is validated. The author and repository fields are proposed for
+  review before publication.
+keywords:
+  - synthetic-data
+  - orbit
+  - wave-encoding
+  - telemetry
+  - anomaly-detection
+  - binaural-audio
+  - analog-calibration
+  - reproducibility
+references:
+  - type: software
+    title: "Digital to Wave Testbench: a synthetic software testbench for a signed-amplitude sine encoding"
+    authors:
+      - family-names: "Brisson"
+        given-names: "Jean-François"
+        orcid: "https://orcid.org/0009-0000-9778-5374"
+    repository-code: "https://github.com/sparkainlp-x/digital-to-wave-testbench"
+    doi: "10.5281/zenodo.23122876"
+    notes: "Software reference; AGPL-3.0-only."
+  - type: software
+    title: "OES-Resilience: benchmarking telemetry intelligence under real-world stress"
+    authors:
+      - family-names: "Brisson"
+        given-names: "Jean-François"
+        orcid: "https://orcid.org/0009-0000-9778-5374"
+    repository-code: "https://github.com/sparkainlp-x/oes-resilience"
+    doi: "10.5281/zenodo.23071166"
+    notes: "Optional upstream replay scorer pinned to v0.6.0; all demo input here is synthetic."
+  - type: software
+    title: "OES telemetry bench: offline replay bench for native synchronized OES32 telemetry frames"
+    authors:
+      - family-names: "Brisson"
+        given-names: "Jean-François"
+        orcid: "https://orcid.org/0009-0000-9778-5374"
+    repository-code: "https://github.com/sparkainlp-x/oes-telemetry-bench"
+    doi: "10.5281/zenodo.23175492"
+    notes: "Related upstream OES replay software; not vendored."
+  - type: software
+    title: "Evidence Passport: offline MVP"
+    authors:
+      - family-names: "Brisson"
+        given-names: "Jean-François"
+        orcid: "https://orcid.org/0009-0000-9778-5374"
+    repository-code: "https://github.com/sparkainlp-x/evidence-passport"
+    doi: "10.5281/zenodo.23165143"
+    notes: "Its validator source is copied in vendor/ and attributed in NOTICE."
+  - type: article
+    title: "Digital to Wave: Paradigm Shift in Quantum Wave-Based Computing and Lab-Grown Diamond Memory"
+    authors:
+      - family-names: "Lee"
+        given-names: "Mun Seok"
+        orcid: "https://orcid.org/0009-0003-6627-8507"
+    year: 2026
+    doi: "10.5281/zenodo.21947036"
+    url: "https://doi.org/10.5281/zenodo.21947036"
+    license: "CC-BY-4.0"
+    notes: "Conceptual source of the signed-amplitude sine equation; not evidence that a physical NV device implements this model."
+  - type: article
+    status: preprint
+    title: "Digital to Wave: LGD In Situ Wave Memory-Human Wave Integrated Interface-Metaverse Hologram- Wave Affective AI"
+    authors:
+      - family-names: "Lee"
+        given-names: "Mun Seok"
+        orcid: "https://orcid.org/0009-0003-6627-8507"
+        affiliation: "Independent researcher"
+    year: 2026
+    publisher:
+      name: "Zenodo"
+    doi: "10.5281/zenodo.21947108"
+    url: "https://doi.org/10.5281/zenodo.21947108"
+    license: "CC-BY-4.0"
+    notes: "Part II, marked preprint/patent pending; cited for context only. The upstream Digital to Wave Testbench citation says this follow-up does not contain the signed-amplitude sine equation; nothing in its LGD, human-wave, THz holography, or Wave Affective AI proposals is modelled here."
+  - type: conference-paper
+    title: "Detecting Spacecraft Anomalies Using LSTMs and Nonparametric Dynamic Thresholding"
+    authors:
+      - family-names: "Hundman"
+        given-names: "Kyle"
+      - family-names: "Constantinou"
+        given-names: "Valentino"
+      - family-names: "Laporte"
+        given-names: "Christopher"
+      - family-names: "Colwell"
+        given-names: "Ian"
+      - family-names: "Soderstrom"
+        given-names: "Tom"
+    year: 2018
+    collection-title: "Proceedings of the 24th ACM SIGKDD International Conference on Knowledge Discovery & Data Mining"
+    doi: "10.1145/3219819.3219845"
+    url: "https://doi.org/10.1145/3219819.3219845"
+    notes: "Cited by upstream OES-Resilience for its public NASA SMAP/MSL anomaly dataset; this project does not redistribute that data or reproduce the benchmark."

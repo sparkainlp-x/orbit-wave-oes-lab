@@ -1,0 +1,277 @@
+{
+  "schema": "evidence-passport/normalized-report/1",
+  "tool_version": "0.1.0",
+  "run_id": "synthetic-orbit-wave-demo",
+  "project": {
+    "name": "Orbit–Wave–OES Lab",
+    "version": "0.1.0",
+    "source_url": null,
+    "source_note": "Local release candidate; no public repository or tag exists yet."
+  },
+  "evidence_class": "synthetic",
+  "dataset": {
+    "name": "Generated normalized orbit/payload/OES demonstration",
+    "kind": "synthetic deterministic software inputs",
+    "description": "No spacecraft, NV-diamond, audio-hardware, or field data is included.",
+    "source_url": null
+  },
+  "code": {
+    "version": "0.1.0",
+    "commit": null
+  },
+  "seed": 20261011,
+  "protocol": {
+    "name": "OES-Resilience schema-2 synthetic demo protocol",
+    "version": "1",
+    "sha256": "98f3a40b8ca5c7e9d0456d22a8b87ef5500c88274f89b01d6be3003ab2d4ce58",
+    "locked_at": "2026-10-14T14:22:34+00:00",
+    "lock_commit": null,
+    "description": "Protocol timestamp is written by the local runner; it is not independently time-verified and is not an external preregistration."
+  },
+  "baselines": [
+    "frozen binary midpoint threshold",
+    "official OES-Resilience oes32/maxabs detectors (only if requested)"
+  ],
+  "results": [
+    {
+      "scope": "synthetic binary payload readout",
+      "method": "calibration-only midpoint threshold held fixed for held-out sessions",
+      "metrics": [
+        {
+          "name": "threshold",
+          "value": 0.4258107647255535,
+          "unit": "arbitrary signal units",
+          "note": "Generated from calibration sessions only; units are not physical.",
+          "interval_95": null
+        },
+        {
+          "name": "heldout_accuracy",
+          "value": 0.742,
+          "unit": "fraction",
+          "note": "Synthetic independent trials; not a hardware or mission metric.",
+          "interval_95": null
+        },
+        {
+          "name": "orbit_timeline_frames",
+          "value": 80,
+          "unit": "frames",
+          "note": "",
+          "interval_95": null
+        },
+        {
+          "name": "official_oes_replay_completed",
+          "value": 1,
+          "unit": "boolean indicator",
+          "note": "Completion indicator only; inspect the raw upstream report for its separate synthetic metrics.",
+          "interval_95": null
+        }
+      ]
+    },
+    {
+      "scope": "synthetic OES held-out replay",
+      "method": "official OES-Resilience v0.6.0; per-detector metrics from upstream report",
+      "metrics": [
+        {
+          "name": "maxabs_synthetic_orbit_demo_event_count",
+          "value": 2,
+          "unit": "frames",
+          "note": "Synthetic evaluation replay only. Calibration false-positive target is not a held-out guarantee.",
+          "interval_95": null
+        },
+        {
+          "name": "maxabs_synthetic_orbit_demo_detected_event_count",
+          "value": 2,
+          "unit": "frames",
+          "note": "Synthetic evaluation replay only. Calibration false-positive target is not a held-out guarantee.",
+          "interval_95": null
+        },
+        {
+          "name": "maxabs_synthetic_orbit_demo_event_recall",
+          "value": 1.0,
+          "unit": "fraction",
+          "note": "Synthetic evaluation replay only. Calibration false-positive target is not a held-out guarantee.",
+          "interval_95": null
+        },
+        {
+          "name": "maxabs_synthetic_orbit_demo_false_positive_frame_count",
+          "value": 8,
+          "unit": "frames",
+          "note": "Synthetic evaluation replay only. Calibration false-positive target is not a held-out guarantee.",
+          "interval_95": null
+        },
+        {
+          "name": "maxabs_synthetic_orbit_demo_false_positive_frame_rate",
+          "value": 0.10666666666666667,
+          "unit": "fraction",
+          "note": "Synthetic evaluation replay only. Calibration false-positive target is not a held-out guarantee.",
+          "interval_95": null
+        },
+        {
+          "name": "maxabs_synthetic_orbit_demo_localization_iou",
+          "value": 0.7777777777777778,
+          "unit": "fraction",
+          "note": "Synthetic evaluation replay only. Calibration false-positive target is not a held-out guarantee.",
+          "interval_95": null
+        },
+        {
+          "name": "oes32_synthetic_orbit_demo_event_count",
+          "value": 2,
+          "unit": "frames",
+          "note": "Synthetic evaluation replay only. Calibration false-positive target is not a held-out guarantee.",
+          "interval_95": null
+        },
+        {
+          "name": "oes32_synthetic_orbit_demo_detected_event_count",
+          "value": 2,
+          "unit": "frames",
+          "note": "Synthetic evaluation replay only. Calibration false-positive target is not a held-out guarantee.",
+          "interval_95": null
+        },
+        {
+          "name": "oes32_synthetic_orbit_demo_event_recall",
+          "value": 1.0,
+          "unit": "fraction",
+          "note": "Synthetic evaluation replay only. Calibration false-positive target is not a held-out guarantee.",
+          "interval_95": null
+        },
+        {
+          "name": "oes32_synthetic_orbit_demo_false_positive_frame_count",
+          "value": 12,
+          "unit": "frames",
+          "note": "Synthetic evaluation replay only. Calibration false-positive target is not a held-out guarantee.",
+          "interval_95": null
+        },
+        {
+          "name": "oes32_synthetic_orbit_demo_false_positive_frame_rate",
+          "value": 0.16,
+          "unit": "fraction",
+          "note": "Synthetic evaluation replay only. Calibration false-positive target is not a held-out guarantee.",
+          "interval_95": null
+        },
+        {
+          "name": "oes32_synthetic_orbit_demo_localization_iou",
+          "value": 0.7142857142857143,
+          "unit": "fraction",
+          "note": "Synthetic evaluation replay only. Calibration false-positive target is not a held-out guarantee.",
+          "interval_95": null
+        }
+      ]
+    }
+  ],
+  "result_label": "synthetic_example",
+  "interpretation": "The run demonstrates deterministic software plumbing over generated data only; it establishes no physical, quantum, analog calibration, spacecraft, or mission performance.",
+  "limitations": [
+    "All orbit/environment, payload, telemetry and injected events in the bundled demo are synthetic.",
+    "Orbit coordinates are normalized; the illumination window and thermal/radiation proxies are not calibrated to an actual orbit or spacecraft.",
+    "Wave encoding and binary readout are classical software calculations; no quantum state, NV center, spin Hamiltonian or physical quantum effect is simulated.",
+    "The optional OES run evaluates synthetic 512-value frames only; replay success does not establish field performance or detector superiority.",
+    "The generated stereo reference is a digital stimulus, not a calibration result; no audio device is opened or played by this program.",
+    "A user-supplied capture WAV is not authenticated as analog; digital gain ratios are not volts, SPL, microphone sensitivity or traceable calibration.",
+    "SHA-256 matching proves byte consistency with this manifest only; it does not prove authorship, timing, measurement validity or provenance.",
+    "The project does not test or validate any device associated with Pacifica Intelligence or Somnath Laha and claims no affiliation."
+  ],
+  "integrity": {
+    "algorithm": "SHA-256",
+    "bundle_consistent": true,
+    "files": [
+      {
+        "path": "orbit_payload_timeline.csv",
+        "role": "synthetic_timeline",
+        "description": "Normalized orbit and synthetic payload-readout rows.",
+        "expected_sha256": "f66b13d21d428996ffa970d55fe5f381bac87367713bfbefb06a1a6fea661cbe",
+        "computed_sha256": "f66b13d21d428996ffa970d55fe5f381bac87367713bfbefb06a1a6fea661cbe",
+        "match": true
+      },
+      {
+        "path": "binary_readout.json",
+        "role": "synthetic_calibration_and_readout",
+        "description": "Calibration-only threshold and independent synthetic held-out readout.",
+        "expected_sha256": "bf2e104ff8071fa7d97e6dba9cf2d9571f6ae7b1e48841d032824d9f8c448930",
+        "computed_sha256": "bf2e104ff8071fa7d97e6dba9cf2d9571f6ae7b1e48841d032824d9f8c448930",
+        "match": true
+      },
+      {
+        "path": "binaural_calibration_reference.wav",
+        "role": "digital_audio_reference",
+        "description": "Generated stereo stepped-tone WAV; not an analog calibration.",
+        "expected_sha256": "79bdc062e757d295f1485259b48baff54b6ea9b9faf6909da7b2505f9b9ea66c",
+        "computed_sha256": "79bdc062e757d295f1485259b48baff54b6ea9b9faf6909da7b2505f9b9ea66c",
+        "match": true
+      },
+      {
+        "path": "binaural_calibration_reference.wav.json",
+        "role": "audio_protocol",
+        "description": "Tone frequencies, segment indices, and reference-file hash.",
+        "expected_sha256": "f71d7b9d3de9718035aa314b8478e62fd1a75f946647da8dfa43077f3c42d9f0",
+        "computed_sha256": "f71d7b9d3de9718035aa314b8478e62fd1a75f946647da8dfa43077f3c42d9f0",
+        "match": true
+      },
+      {
+        "path": "oes_calibration.jsonl",
+        "role": "synthetic_oes_calibration",
+        "description": "Event-free synthetic 512-channel replay for threshold calibration.",
+        "expected_sha256": "e8716c2829873f1f1929e6420cb2c7f33b64133ee0e55856be80783682549e20",
+        "computed_sha256": "e8716c2829873f1f1929e6420cb2c7f33b64133ee0e55856be80783682549e20",
+        "match": true
+      },
+      {
+        "path": "oes_evaluation.jsonl",
+        "role": "synthetic_oes_evaluation",
+        "description": "Held-out synthetic replay with known injected events.",
+        "expected_sha256": "d90ae5d5cc6d68b92096b7a9b824f1bfc8f55ca914c247727ba8f2ddb020a404",
+        "computed_sha256": "d90ae5d5cc6d68b92096b7a9b824f1bfc8f55ca914c247727ba8f2ddb020a404",
+        "match": true
+      },
+      {
+        "path": "oes_protocol.json",
+        "role": "protocol",
+        "description": "Replay protocol bound to the event-free synthetic calibration replay hash.",
+        "expected_sha256": "98f3a40b8ca5c7e9d0456d22a8b87ef5500c88274f89b01d6be3003ab2d4ce58",
+        "computed_sha256": "98f3a40b8ca5c7e9d0456d22a8b87ef5500c88274f89b01d6be3003ab2d4ce58",
+        "match": true
+      },
+      {
+        "path": "run_summary.json",
+        "role": "run_summary",
+        "description": "Run-level result and explicit evidence boundaries.",
+        "expected_sha256": "1d275fdb796c0421190a605debca58785dabcb06b681ae9e66e098ca32ff846a",
+        "computed_sha256": "1d275fdb796c0421190a605debca58785dabcb06b681ae9e66e098ca32ff846a",
+        "match": true
+      },
+      {
+        "path": "oes-results/synthetic_orbit_wave_report.json",
+        "role": "upstream_oes_output",
+        "description": "Output emitted by the official OES-Resilience replay command.",
+        "expected_sha256": "c9a3272738f0533626607303b7cfbc01181370b5bcf358f9a376ee514f4a66f4",
+        "computed_sha256": "c9a3272738f0533626607303b7cfbc01181370b5bcf358f9a376ee514f4a66f4",
+        "match": true
+      },
+      {
+        "path": "oes-results/synthetic_orbit_wave_scorecard.csv",
+        "role": "upstream_oes_output",
+        "description": "Output emitted by the official OES-Resilience replay command.",
+        "expected_sha256": "481b0170f261b73fbca2ac07db865d6419913e49014d7388e756557326a2debf",
+        "computed_sha256": "481b0170f261b73fbca2ac07db865d6419913e49014d7388e756557326a2debf",
+        "match": true
+      },
+      {
+        "path": "oes-results/synthetic_orbit_wave_manifest.json",
+        "role": "upstream_oes_output",
+        "description": "Output emitted by the official OES-Resilience replay command.",
+        "expected_sha256": "c7e0f75944c749eab5b521ddc11d115b5401d3733b90935df14d6dc24f77f0fc",
+        "computed_sha256": "c7e0f75944c749eab5b521ddc11d115b5401d3733b90935df14d6dc24f77f0fc",
+        "match": true
+      },
+      {
+        "path": "oes-results/synthetic_orbit_wave_run_metadata.json",
+        "role": "upstream_oes_output",
+        "description": "Output emitted by the official OES-Resilience replay command.",
+        "expected_sha256": "d0d7e31e282c45dd408c4f3036bd7b2bff760b9584ad8507cbaec3c4c270ca95",
+        "computed_sha256": "d0d7e31e282c45dd408c4f3036bd7b2bff760b9584ad8507cbaec3c4c270ca95",
+        "match": true
+      }
+    ],
+    "meaning": "SHA-256 matching proves only byte-for-byte consistency between a referenced file and the digest recorded in this bundle. It does not prove authorship, when a file or protocol existed, provenance authenticity, or measurement or method validity."
+  },
+  "notice": "SHA-256 matching proves only byte-for-byte consistency between a referenced file and the digest recorded in this bundle. It does not prove authorship, when a file or protocol existed, provenance authenticity, or measurement or method validity."
+}
