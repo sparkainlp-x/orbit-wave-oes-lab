@@ -99,7 +99,7 @@ License: **AGPL-3.0-only**; see [`LICENSE`](LICENSE). Commercial use without AGP
 
 ## Citation
 
-Archived on Zenodo: concept DOI [10.5281/zenodo.23372536](https://doi.org/10.5281/zenodo.23372536) (all versions). Version DOI for v0.1.0: [10.5281/zenodo.23372537](https://doi.org/10.5281/zenodo.23372537).
+Archived on Zenodo: concept DOI [10.5281/zenodo.23372536](https://doi.org/10.5281/zenodo.23372536) (all versions). Version DOIs: v0.1.1 is [10.5281/zenodo.23373072](https://doi.org/10.5281/zenodo.23373072); v0.1.0 is [10.5281/zenodo.23372537](https://doi.org/10.5281/zenodo.23372537).
 
 ## Review
 
