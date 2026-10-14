@@ -150,6 +150,16 @@ def _read_pcm_stereo(path: Path) -> tuple[int, list[tuple[float, float]], int]:
     return sample_rate, samples, width
 
 
+def _is_clipped(value: float, width: int) -> bool:
+    """Return True at either PCM rail for the given sample width in bytes.
+
+    Signed n-bit PCM decodes to [-1, (2**(n-1) - 1) / 2**(n-1)]; 8-bit positive
+    full scale is 127/128 = 0.9921875, so a fixed 0.999 threshold would miss it.
+    """
+    full_scale = 2 ** (8 * width - 1)
+    return value >= (full_scale - 1) / full_scale or value <= -1.0
+
+
 def _tone_component(
     samples: list[tuple[float, float]], *, channel: int, start: int, end: int,
     frequency_hz: float, sample_rate_hz: int,
@@ -254,7 +264,7 @@ def analyze_capture(
             ),
         })
 
-    clipped = sum(abs(value) >= 0.999 for frame in cap_samples for value in frame)
+    clipped = sum(_is_clipped(value, cap_width) for frame in cap_samples for value in frame)
     sample_count = 2 * len(cap_samples)
     peak = max((abs(value) for frame in cap_samples for value in frame), default=0.0)
     return {
