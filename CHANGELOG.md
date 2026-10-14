@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.1.1 — 2026-10-14
+
+### Fixed
+- Passport manifest records the public repository URL and the build-time `git rev-parse HEAD` commit (null outside a git checkout); the stale "no public repository" note is removed.
+- Capture clipping detection is PCM-width-aware (8-bit positive full scale decodes to 127/128 = 0.992); regression test for widths 1-4.
+- `analyze_capture` rejects captures longer than 10 minutes before decoding.
+
+### Documentation
+- README Reproducibility states the default-seed held-out accuracy (0.742 over 10 sessions) of the synthetic toy classifier with intentionally noisy parameters.
+
 ## 0.1.0 — 2026-10-14
 
 ### Documentation and packaging

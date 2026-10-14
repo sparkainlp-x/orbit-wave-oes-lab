@@ -1,7 +1,7 @@
 {
   "upload_type": "software",
   "title": "Orbit–Wave–OES Lab: synthetic orbit, wave-payload, telemetry replay, and binaural capture analysis",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "<p><strong>Orbit–Wave–OES Lab</strong> is a software-only research prototype: a stylized orbital timeline, a classical signed-amplitude sine payload encoding, fixed-threshold synthetic readout, optional OES-Resilience replay scoring, a static SHA-256 evidence passport, and offline analysis of a user-provided stereo PCM WAV.</p><p><strong>Evidence.</strong> Orbit, payload, telemetry events and the bundled demo are <strong>SYNTHETIC</strong>. Physical orbit propagation, spacecraft hardware, quantum devices, NV-center physics, audio hardware and acoustic calibration are <strong>UNRUN</strong>.</p><p><strong>Limits.</strong> Classical software arithmetic only. No QKD, quantum advantage, real satellite hardware, flight-readiness, clinical, security or SMAP/MSL beat claim. Upstream OES-Resilience reports that its own preregistered criteria were not met. Collaborators credited in the README are not creators of this software and have not confirmed authorship or endorsement of results.</p>",
   "creators": [
     {
