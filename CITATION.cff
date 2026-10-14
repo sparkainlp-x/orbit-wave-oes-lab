@@ -8,7 +8,7 @@ authors:
     affiliation: "Spark AI NLP"
     orcid: "https://orcid.org/0009-0000-9778-5374"
 version: "0.1.0"
-# date-released: set at release time
+date-released: "2026-10-14"
 license: "AGPL-3.0-only"
 repository-code: "https://github.com/sparkainlp-x/orbit-wave-oes-lab"
 abstract: >-

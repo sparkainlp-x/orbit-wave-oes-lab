@@ -91,5 +91,6 @@
       "identifier": "spark-ai-nlp"
     }
   ],
-  "notes": "Collaborators Mun Seok Lee and Somnath Laha (CSIR-CMERI) are credited for related conceptual work; they are listed as contributors of type Other, not creators. They have not confirmed authorship and are not implied to endorse results. Commercial licensing: see COMMERCIAL-LICENSE.md. Do not mint a GitHub release until the Zenodo webhook is enabled."
+  "notes": "Collaborators Mun Seok Lee and Somnath Laha (CSIR-CMERI) are credited for related conceptual work; they are listed as contributors of type Other, not creators. They have not confirmed authorship and are not implied to endorse results. Commercial licensing: see COMMERCIAL-LICENSE.md. Evidence class SYNTHETIC; physical orbit, spacecraft, quantum devices and audio hardware are UNRUN.",
+  "publication_date": "2026-10-14"
 }
