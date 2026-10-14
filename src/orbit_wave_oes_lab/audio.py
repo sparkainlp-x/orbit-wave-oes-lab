@@ -15,6 +15,7 @@ from typing import Any
 
 FREQUENCIES_HZ = (125, 250, 500, 1000, 2000, 4000, 8000)
 PROTOCOL_VERSION = "1"
+MAX_CAPTURE_SECONDS = 600
 
 
 class AudioCalibrationError(ValueError):
@@ -113,7 +114,9 @@ def write_reference_wav(
     return protocol
 
 
-def _read_pcm_stereo(path: Path) -> tuple[int, list[tuple[float, float]], int]:
+def _read_pcm_stereo(
+    path: Path, *, max_seconds: float | None = None,
+) -> tuple[int, list[tuple[float, float]], int]:
     try:
         with wave.open(str(path), "rb") as source:
             channels = source.getnchannels()
@@ -121,6 +124,11 @@ def _read_pcm_stereo(path: Path) -> tuple[int, list[tuple[float, float]], int]:
             sample_rate = source.getframerate()
             frame_count = source.getnframes()
             compression = source.getcomptype()
+            if max_seconds is not None and sample_rate > 0 and frame_count / sample_rate > max_seconds:
+                raise AudioCalibrationError(
+                    f"{path} is {frame_count / sample_rate:.1f} s long; captures longer than "
+                    f"{max_seconds:g} s ({max_seconds / 60:g} minutes) are rejected"
+                )
             raw = source.readframes(frame_count)
     except (OSError, EOFError, wave.Error) as exc:
         raise AudioCalibrationError(f"cannot read WAV {path}: {exc}") from exc
@@ -148,6 +156,16 @@ def _read_pcm_stereo(path: Path) -> tuple[int, list[tuple[float, float]], int]:
     if len(samples) != frame_count:
         raise AudioCalibrationError(f"truncated PCM data in {path}")
     return sample_rate, samples, width
+
+
+def _is_clipped(value: float, width: int) -> bool:
+    """Return True at either PCM rail for the given sample width in bytes.
+
+    Signed n-bit PCM decodes to [-1, (2**(n-1) - 1) / 2**(n-1)]; 8-bit positive
+    full scale is 127/128 = 0.9921875, so a fixed 0.999 threshold would miss it.
+    """
+    full_scale = 2 ** (8 * width - 1)
+    return value >= (full_scale - 1) / full_scale or value <= -1.0
 
 
 def _tone_component(
@@ -198,7 +216,7 @@ def analyze_capture(
         raise AudioCalibrationError("reference WAV SHA-256 does not match its protocol sidecar")
 
     ref_rate, ref_samples, ref_width = _read_pcm_stereo(reference_path)
-    cap_rate, cap_samples, cap_width = _read_pcm_stereo(capture_path)
+    cap_rate, cap_samples, cap_width = _read_pcm_stereo(capture_path, max_seconds=MAX_CAPTURE_SECONDS)
     if ref_rate != protocol.get("sample_rate_hz"):
         raise AudioCalibrationError("reference WAV sample rate does not match its protocol")
     if cap_rate != ref_rate:
@@ -254,7 +272,7 @@ def analyze_capture(
             ),
         })
 
-    clipped = sum(abs(value) >= 0.999 for frame in cap_samples for value in frame)
+    clipped = sum(_is_clipped(value, cap_width) for frame in cap_samples for value in frame)
     sample_count = 2 * len(cap_samples)
     peak = max((abs(value) for frame in cap_samples for value in frame), default=0.0)
     return {
