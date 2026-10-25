@@ -15,7 +15,7 @@
     "The generated stereo reference is a digital stimulus, not a calibration result; no audio device is opened or played by this program.",
     "A user-supplied capture WAV is not authenticated as analog; digital gain ratios are not volts, SPL, microphone sensitivity or traceable calibration.",
     "SHA-256 matching proves byte consistency with this manifest only; it does not prove authorship, timing, measurement validity or provenance.",
-    "The project does not test or validate any device associated with Pacifica Intelligence or Somnath Laha and claims no affiliation."
+    "The project does not test any physical device and claims no affiliation with any device maker or organization."
   ],
   "normalized_orbit_period_steps": 40,
   "oes_replay": {
