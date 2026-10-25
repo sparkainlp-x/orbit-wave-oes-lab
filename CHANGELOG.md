@@ -1,5 +1,10 @@
 # Changelog
 
+## Unreleased
+
+### Documentation
+- Replaced the naming of a company, of a device attributed to a collaborator, and of a private attachment's filename in `SOURCES.md`, `NOTICE`, the pipeline limitations text and the bundled demo outputs with neutral wording ("a supplied engineering answer sheet", "any third-party device or organization"). The collaborator credits are unchanged. The bundled demo outputs were regenerated with `orbit-wave-oes demo --with-oes`, so their timestamps and hashes changed; no release.
+
 ## 0.1.1 — 2026-10-14
 
 ### Fixed
