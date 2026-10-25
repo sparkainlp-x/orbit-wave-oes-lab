@@ -6,7 +6,7 @@
   "event_hit_rule": "any_alert_frame_during_event",
   "latency_rule": "first_alert_frame_minus_first_event_frame_ms",
   "localization_rule": "framewise_micro_precision_recall_iou",
-  "locked_at": "2026-10-14T15:26:34+00:00",
+  "locked_at": "2026-10-25T02:42:15+00:00",
   "protocol_id": "orbit-wave-oes-synthetic-demo-v1",
   "schema_version": 2,
   "score_spec": {

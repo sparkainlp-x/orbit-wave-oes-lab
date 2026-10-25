@@ -17,14 +17,14 @@
   },
   "code": {
     "version": "0.1.1",
-    "commit": "873e83a81e1c4992e069a8813c92a2cf7809f904"
+    "commit": "dad9af995edd07f0dfe05ab830980a311097ee5d"
   },
   "seed": 20261011,
   "protocol": {
     "name": "OES-Resilience schema-2 synthetic demo protocol",
     "version": "1",
-    "sha256": "70c7d5b65a018ad6e0cf0894bbbb0712dbbc88300a09ef75e5dfcb18cc559df3",
-    "locked_at": "2026-10-14T15:26:34+00:00",
+    "sha256": "97a145f97521bb2ca27b05b8a7d953e1c77a04ea808e797ecd7c849f57747445",
+    "locked_at": "2026-10-25T02:42:15+00:00",
     "lock_commit": null,
     "description": "Protocol timestamp is written by the local runner; it is not independently time-verified and is not an external preregistration."
   },
@@ -168,7 +168,7 @@
     "The generated stereo reference is a digital stimulus, not a calibration result; no audio device is opened or played by this program.",
     "A user-supplied capture WAV is not authenticated as analog; digital gain ratios are not volts, SPL, microphone sensitivity or traceable calibration.",
     "SHA-256 matching proves byte consistency with this manifest only; it does not prove authorship, timing, measurement validity or provenance.",
-    "The project does not test or validate any device associated with Pacifica Intelligence or Somnath Laha and claims no affiliation."
+    "The project does not test any physical device and claims no affiliation with any device maker or organization."
   ],
   "integrity": {
     "algorithm": "SHA-256",
@@ -226,24 +226,24 @@
         "path": "oes_protocol.json",
         "role": "protocol",
         "description": "Replay protocol bound to the event-free synthetic calibration replay hash.",
-        "expected_sha256": "70c7d5b65a018ad6e0cf0894bbbb0712dbbc88300a09ef75e5dfcb18cc559df3",
-        "computed_sha256": "70c7d5b65a018ad6e0cf0894bbbb0712dbbc88300a09ef75e5dfcb18cc559df3",
+        "expected_sha256": "97a145f97521bb2ca27b05b8a7d953e1c77a04ea808e797ecd7c849f57747445",
+        "computed_sha256": "97a145f97521bb2ca27b05b8a7d953e1c77a04ea808e797ecd7c849f57747445",
         "match": true
       },
       {
         "path": "run_summary.json",
         "role": "run_summary",
         "description": "Run-level result and explicit evidence boundaries.",
-        "expected_sha256": "367c8aa540b2955122a5fbb704308697bf02f4f1ac684d900342b64aeaf8b1e7",
-        "computed_sha256": "367c8aa540b2955122a5fbb704308697bf02f4f1ac684d900342b64aeaf8b1e7",
+        "expected_sha256": "72e14b46a0625d84af7c51131e22e9eed2f43bc55daebaee6f8f82bc7f2dc5f9",
+        "computed_sha256": "72e14b46a0625d84af7c51131e22e9eed2f43bc55daebaee6f8f82bc7f2dc5f9",
         "match": true
       },
       {
         "path": "oes-results/synthetic_orbit_wave_report.json",
         "role": "upstream_oes_output",
         "description": "Output emitted by the official OES-Resilience replay command.",
-        "expected_sha256": "3566d25816d7a93e92ef103bdf2921c8cec0c47d27f758900f820142bff1f1d6",
-        "computed_sha256": "3566d25816d7a93e92ef103bdf2921c8cec0c47d27f758900f820142bff1f1d6",
+        "expected_sha256": "9a3141044cf130007a50c96de975bd198b7856fafaacff3fe1768d8a19ad90b3",
+        "computed_sha256": "9a3141044cf130007a50c96de975bd198b7856fafaacff3fe1768d8a19ad90b3",
         "match": true
       },
       {
@@ -258,16 +258,16 @@
         "path": "oes-results/synthetic_orbit_wave_manifest.json",
         "role": "upstream_oes_output",
         "description": "Output emitted by the official OES-Resilience replay command.",
-        "expected_sha256": "5efe5d52fa74e6086ae0dfb19d42aeb2a64fe13f36b7d933d60359eaacb7b968",
-        "computed_sha256": "5efe5d52fa74e6086ae0dfb19d42aeb2a64fe13f36b7d933d60359eaacb7b968",
+        "expected_sha256": "029996120da31e3813fc0a9e2b4c6425973baa363d67fb87ed9b9866351cc091",
+        "computed_sha256": "029996120da31e3813fc0a9e2b4c6425973baa363d67fb87ed9b9866351cc091",
         "match": true
       },
       {
         "path": "oes-results/synthetic_orbit_wave_run_metadata.json",
         "role": "upstream_oes_output",
         "description": "Output emitted by the official OES-Resilience replay command.",
-        "expected_sha256": "4aa0bd38e5a213ea9e1e624ff4a8ea29afe068f5476390c1f96f0449593e5d51",
-        "computed_sha256": "4aa0bd38e5a213ea9e1e624ff4a8ea29afe068f5476390c1f96f0449593e5d51",
+        "expected_sha256": "91df0462c4871307cdba745bafa30c8fbf9d59c34996eb6151db3e1a1d773ca6",
+        "computed_sha256": "91df0462c4871307cdba745bafa30c8fbf9d59c34996eb6151db3e1a1d773ca6",
         "match": true
       }
     ],
